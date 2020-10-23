@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="quote-container">
+
+    </div>
+    <div class="form hidden">
+        <h1 class="form-title">Создайте цитату!</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label class="form-label">
+                Цитата:
+                <textarea id="text" class="text-input" name="text"></textarea>
+            </label>
+            <br>
+            <label class="form-label">
+                Автор:
+                <input id="author" class="author-input" type="text" name="author">
+            </label>
+            <br>
+            <label class="form-label">
+                Почта:
+                <input id="email" class="email-input" type="email" name="email">
+            </label>
+            <a href="http://localhost:8000/api/quotes/" id="submit" data-target="submit" type="submit" class="btns">Создать</a>
+        </form>
+    </div>
+
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+{% endblock %}
