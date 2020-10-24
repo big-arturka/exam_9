@@ -22,3 +22,10 @@ class Favorites(models.Model):
     photo = models.ForeignKey(Photo, related_name='favorite_photo', verbose_name='Фото', on_delete=models.CASCADE)
     author = models.ForeignKey(get_user_model(), related_name='favorite_author',
                                verbose_name='Автор', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.photo}-{self.author}'
+
+    class Meta:
+        verbose_name = 'Избранное'
+        verbose_name_plural = 'Избранные'

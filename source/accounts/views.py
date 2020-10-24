@@ -14,6 +14,7 @@ from django.conf import settings
 
 from accounts.forms import MyUserCreationForm, UserChangeForm, ProfileChangeForm, \
     PasswordChangeForm, PasswordResetEmailForm, PasswordResetForm
+from webapp.models import Favorites, Photo
 from .models import AuthToken, Profile
 
 
@@ -64,7 +65,11 @@ class UserDetailView(DetailView):
     paginate_related_orphans = 0
 
     def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
+        date = Favorites.objects.filter(author=self.kwargs.get('pk'))
+        photos = Photo.objects.filter(id__in=date)
+        context['photos'] = photos
+        return context
 
 
 class UserChangeView(UserPassesTestMixin, UpdateView):
