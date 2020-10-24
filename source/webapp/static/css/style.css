@@ -189,3 +189,36 @@ input[type='submit']:hover {
 .photo-actions {
     margin: 15px 0 15px 0;
 }
+
+.add {
+    margin-left: 20px;
+    box-sizing: border-box;
+    padding: 10px;
+    color: green;
+    border: solid 1px green;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.remove {
+    margin-left: 20px;
+    box-sizing: border-box;
+    padding: 10px;
+    color: red;
+    border: solid 1px red;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.add:hover {
+    background: green;
+    color: white;
+    border: solid 1px white;
+    text-decoration: none;
+}
+
+.remove:hover {
+    background: red;
+    color: white;
+    border: solid 1px white;
+    text-decoration: none;
+}

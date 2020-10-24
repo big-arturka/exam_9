@@ -46,7 +46,7 @@
         <div class="favorites">
             {% if user.is_authenticated %}
                 <p>
-                    <a class="btn btn-outline-dager remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
+                    <a class="remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
                 </p>
             {% endif %}
         </div>

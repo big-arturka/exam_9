@@ -20,8 +20,8 @@
             {% if user.is_authenticated %}
                 <p>
                     {% with photo|fav_by:user as fav %}
-                        <a class="btn btn-outline-succes {% if fav %}hidden{% endif %} add" href="{% url 'api:add' photo.pk %}">Add to favourites</a>
-                        <a class="btn btn-outline-dager {% if not fav %}hidden{% endif %} remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
+                        <a class="{% if fav %}hidden{% endif %} add" href="{% url 'api:add' photo.pk %}">Add to favourites</a>
+                        <a class="{% if not fav %}hidden{% endif %} remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
                     {% endwith %}
                 </p>
             {% endif %}
