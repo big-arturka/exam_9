@@ -1,0 +1,115 @@
+[
+{
+  "model": "webapp.photo",
+  "pk": 1,
+  "fields": {
+    "image": "images/1.jpg",
+    "signature": "\u0422\u043e, \u0441\u0430\u043c\u043e\u0435...",
+    "created_at": "2020-10-24T05:45:03.049Z",
+    "author": 1
+  }
+},
+{
+  "model": "webapp.photo",
+  "pk": 2,
+  "fields": {
+    "image": "images/2.jpg",
+    "signature": "\u0417\u0430\u043a\u0440\u044b\u0442\u044b\u0439 \u043a\u043e\u0441\u043c\u043e\u0441...",
+    "created_at": "2020-10-24T05:56:43.560Z",
+    "author": 1
+  }
+},
+{
+  "model": "webapp.photo",
+  "pk": 3,
+  "fields": {
+    "image": "images/3.jpg",
+    "signature": "\u0412\u0441\u0435 \u043c\u044b, \u0432 \u043a\u043e\u043d\u0435\u0447\u043d\u043e\u043c \u0441\u0447\u0451\u0442\u0435 \u0443\u0434\u043e\u0431\u0440\u0435\u043d\u0438\u044f",
+    "created_at": "2020-10-24T05:57:16.399Z",
+    "author": 1
+  }
+},
+{
+  "model": "webapp.photo",
+  "pk": 4,
+  "fields": {
+    "image": "images/4.jpg",
+    "signature": "...",
+    "created_at": "2020-10-24T05:57:29.734Z",
+    "author": 1
+  }
+},
+{
+  "model": "webapp.photo",
+  "pk": 5,
+  "fields": {
+    "image": "images/5.jpg",
+    "signature": "\u041c\u043e\u043b\u0447\u0438",
+    "created_at": "2020-10-24T05:57:55.985Z",
+    "author": 1
+  }
+},
+{
+  "model": "webapp.photo",
+  "pk": 6,
+  "fields": {
+    "image": "images/6.jpg",
+    "signature": "\u0427\u0442\u043e \u0434\u0430\u043b\u044c\u0448\u0435?",
+    "created_at": "2020-10-24T05:58:36.469Z",
+    "author": 1
+  }
+},
+{
+  "model": "webapp.photo",
+  "pk": 9,
+  "fields": {
+    "image": "images/7_0cO4RZc.jpg",
+    "signature": "\u041a\u0430\u043a \u0442\u043e \u0442\u0430\u043a..",
+    "created_at": "2020-10-24T06:49:48.752Z",
+    "author": 1
+  }
+},
+{
+  "model": "webapp.favorites",
+  "pk": 75,
+  "fields": {
+    "photo": 9,
+    "author": 3
+  }
+},
+{
+  "model": "webapp.favorites",
+  "pk": 76,
+  "fields": {
+    "photo": 6,
+    "author": 3
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "birth_date": "2020-10-24",
+    "avatar": ""
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "birth_date": "2020-10-24",
+    "avatar": ""
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "birth_date": "2020-10-24",
+    "avatar": ""
+  }
+}
+]
