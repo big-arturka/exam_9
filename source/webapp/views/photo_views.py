@@ -16,7 +16,7 @@ class IndexView(ListView):
     paginate_orphans = 5
 
     def get_queryset(self):
-        return Photo.objects.all()
+        return Photo.objects.all().order_by('-created_at')
 
 
 class PhotoView(DetailView):

@@ -24,14 +24,14 @@
         <div class="card mb-3">
             <img src="{{ photo.image.url }}" class="card-img-top" alt="image">
             <div class="card-body">
-                <h5 class="card-title">{{ photo.signature }}</h5>
-                <p class="card-text">{{ photo.author }}</p>
+                <h5 class="card-title">Signature: {{ photo.signature }}</h5>
+                <a class="author-link" href="{% url 'accounts:detail' photo.author.pk %}">Author: {{ photo.author }}</a>
                 <div class="photo-actions">
                     {% if perms.webapp.change_photo or photo.author == request.user %}
-                        <a class="btn btn-outline-dark" href="{% url 'webapp:update_photo' photo.pk %}">Изменить...</a>
+                        <a class="btn btn-outline-dark" href="{% url 'webapp:update_photo' photo.pk %}">Edit...</a>
                     {% endif %}
                     {% if perms.webapp.delete_photo or photo.author == request.user %}
-                        <a class="btn btn-outline-dark" href="{% url 'webapp:delete_photo' photo.pk %}">Удалить...</a>
+                        <a class="btn btn-outline-dark" href="{% url 'webapp:delete_photo' photo.pk %}">Delete...</a>
                     {% endif %}
                 </div>
                 <p class="card-text"><small class="text-muted">{{ photo.created_at }}</small></p>

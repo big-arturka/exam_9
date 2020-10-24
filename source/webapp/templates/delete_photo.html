@@ -10,11 +10,11 @@
 <div class="card mt-5">
     <form action="{% url 'webapp:delete_photo' photo.pk %}" method="post">
         {% csrf_token %}
-        <h5 class="card-header">Удаление</h5>
+        <h5 class="card-header">Delete</h5>
         <div class="card-body">
-            <h5 class="card-title">Вы действительно хотите удалить фотографию автора: "{{ photo.author }}" ?</h5>
-            <p><input type="submit" class="btn btn-outline-dark btn-lg btn-block" value="Да"></p>
-            <a class="btn btn-outline-dark btn-lg btn-block"  href="{% url 'webapp:detail_photo' photo.pk %}">Нет</a>
+            <h5 class="card-title">Are you sure you want to delete the author's photo: "{{ photo.author }}" ?</h5>
+            <p><input type="submit" class="btn btn-outline-dark btn-lg btn-block" value="Yes"></p>
+            <a class="btn btn-outline-dark btn-lg btn-block"  href="{% url 'webapp:detail_photo' photo.pk %}">No</a>
         </div>
     </form>
 </div>
