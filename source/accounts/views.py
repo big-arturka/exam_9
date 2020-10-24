@@ -56,7 +56,7 @@ class RegisterActivateView(View):
         login(self.request, user)
 
 
-class UserDetailView(LoginRequiredMixin, DetailView):
+class UserDetailView(DetailView):
     model = get_user_model()
     template_name = 'user_detail.html'
     context_object_name = 'user_obj'

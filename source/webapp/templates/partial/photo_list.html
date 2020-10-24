@@ -1,0 +1,22 @@
+{% for photo in photos %}
+    <div class="card mt-4 mb-4">
+        <img src="{{ photo.image.url }}" class="card-img-top" width="300" alt="photo">
+        <div class="card-body">
+            <h5 class="card-title">{{ photo.signature }}</h5>
+            <a href="{% url 'accounts:detail' photo.author.pk %}">{{ photo.author }}</a>
+        <div class="photo-actions">
+            <a class="btn btn-outline-dark" href="{% url 'webapp:detail_photo' photo.pk %}">Подробнее...</a>
+            {% if perms.webapp.change_photo or photo.author == request.user %}
+                <a class="btn btn-outline-dark" href="{% url 'webapp:update_photo' photo.pk %}">Изменить...</a>
+            {% endif %}
+            {% if perms.webapp.delete_photo or photo.author == request.user %}
+                <a class="btn btn-outline-dark" href="{% url 'webapp:delete_photo' photo.pk %}">Удалить...</a>
+            {% endif %}
+
+        </div>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">{{ photo.created_at }}</small>
+        </div>
+    </div>
+{% endfor %}
