@@ -4,11 +4,11 @@
 {% block auth_menu %}
     {% if request.user.is_authenticated %}
         <li class="nav-item ">
-            <a class="nav-link" href="{% url 'accounts:logout' %}">Выйти</a>
+            <a class="nav-link" href="{% url 'accounts:logout' %}">Exit</a>
         </li>
     {% else %}
         <li class="nav-item ">
-            <a class="nav-link" href="{% url 'accounts:login' %}">Войти</a>
+            <a class="nav-link" href="{% url 'accounts:login' %}">Sign In</a>
         </li>
         <li class="nav-item ">
             <a class="nav-link" href="{% url 'accounts:create' %}?next={{ request.get_full_path }}">Sign Up</a>
@@ -32,6 +32,14 @@
                     {% endif %}
                     {% if perms.webapp.delete_photo or photo.author == request.user %}
                         <a class="btn btn-outline-dark" href="{% url 'webapp:delete_photo' photo.pk %}">Delete...</a>
+                    {% endif %}
+                </div>
+                <div class="favorites">
+                    {% if user.is_authenticated %}
+                        <p>
+                            <a class="btn btn-outline-succes add" href="{% url 'api:add' photo.pk %}">Add to favourites</a>
+                            <a class="btn btn-outline-dager remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
+                        </p>
                     {% endif %}
                 </div>
                 <p class="card-text"><small class="text-muted">{{ photo.created_at }}</small></p>

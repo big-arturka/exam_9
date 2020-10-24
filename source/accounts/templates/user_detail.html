@@ -24,7 +24,37 @@
     <p>Birth date: {{ user_obj.profile.birth_date|date:'d.m.Y' }}</p>
     <p>Email: {{ user_obj.email }}</p>
 
-    <h2 class="text-center clear">Selected photographs of the author:</h2>
-    {% include 'partial/photo_list.html' %}
+    {% if user.is_authenticated %}
+        <h2 class="text-center">Selected photographs of the author:</h2>
+        {% for photo in photos %}
+    <div class="card mt-4 mb-4">
+        <img src="{{ photo.image.url }}" class="card-img-top" width="300" alt="photo">
+        <div class="card-body">
+            <h5 class="card-title">Signature: {{ photo.signature }}</h5>
+            <a class="author-link" href="{% url 'accounts:detail' photo.author.pk %}">Author: {{ photo.author }}</a>
+            <div class="photo-actions">
+                <a class="btn btn-outline-dark" href="{% url 'webapp:detail_photo' photo.pk %}">More details...</a>
+                {% if perms.webapp.change_photo or photo.author == request.user %}
+                    <a class="btn btn-outline-dark" href="{% url 'webapp:update_photo' photo.pk %}">Edit...</a>
+                {% endif %}
+                {% if perms.webapp.delete_photo or photo.author == request.user %}
+                    <a class="btn btn-outline-dark" href="{% url 'webapp:delete_photo' photo.pk %}">Delete...</a>
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="favorites">
+            {% if user.is_authenticated %}
+                <p>
+                    <a class="btn btn-outline-dager remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
+                </p>
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">{{ photo.created_at }}</small>
+        </div>
+    </div>
+{% endfor %}
+    {% endif %}
 
 {% endblock %}

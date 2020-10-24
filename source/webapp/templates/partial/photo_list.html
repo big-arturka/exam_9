@@ -16,8 +16,12 @@
             </div>
         </div>
         <div class="favorites">
-            <button>Add to favourites</button>
-            <button>Remove from favorites</button>
+            {% if user.is_authenticated %}
+                <p>
+                    <a class="btn btn-outline-succes add" href="{% url 'api:add' photo.pk %}">Add to favourites</a>
+                    <a class="btn btn-outline-dager remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
+                </p>
+            {% endif %}
         </div>
         <div class="card-footer">
             <small class="text-muted">{{ photo.created_at }}</small>
