@@ -57,7 +57,7 @@ async function add(event) {
 
     addBtn.classList.add('hidden');
     const removeBtn = addBtn.parentElement
-        .getElementsByClassName('add')[0];
+        .getElementsByClassName('remove')[0];
     removeBtn.classList.remove('hidden');
 }
 
