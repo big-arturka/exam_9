@@ -1,3 +1,4 @@
+{% load favorites %}
 {% for photo in photos %}
     <div class="card mt-4 mb-4">
         <img src="{{ photo.image.url }}" class="card-img-top" width="300" alt="photo">
@@ -18,8 +19,10 @@
         <div class="favorites">
             {% if user.is_authenticated %}
                 <p>
-                    <a class="btn btn-outline-succes add" href="{% url 'api:add' photo.pk %}">Add to favourites</a>
-                    <a class="btn btn-outline-dager remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
+                    {% with photo|fav_by:user as fav %}
+                        <a class="btn btn-outline-succes {% if fav %}hidden{% endif %} add" href="{% url 'api:add' photo.pk %}">Add to favourites</a>
+                        <a class="btn btn-outline-dager {% if not fav %}hidden{% endif %} remove" href="{% url 'api:remove' photo.pk %}">Remove from favorites</a>
+                    {% endwith %}
                 </p>
             {% endif %}
         </div>

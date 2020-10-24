@@ -10,6 +10,10 @@ class Photo(models.Model):
     author = models.ForeignKey(get_user_model(), max_length=50, verbose_name='Автор',
                                related_name='image_author', on_delete=models.CASCADE)
 
+    def fav_by(self, user):
+        favs = self.favorite_photo.filter(author=user)
+        return favs
+
     def __str__(self):
         return f'{self.signature}-{self.author}'
 
