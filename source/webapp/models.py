@@ -16,3 +16,9 @@ class Photo(models.Model):
     class Meta:
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
+
+
+class Favorites(models.Model):
+    photo = models.ForeignKey(Photo, related_name='favorite_photo', verbose_name='Фото', on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), related_name='favorite_author',
+                               verbose_name='Автор', on_delete=models.CASCADE)
